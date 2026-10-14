@@ -1,0 +1,360 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Portfólio · Ericton Felicidad de Brito</title>
+<meta name="description" content="Portfólio de Ericton Felicidad de Brito — Analista de Teste (QA) e Desenvolvedor Frontend, Manaus/AM. Interface com fundo tecnológico animado, abertura com locução e versões em português e inglês.">
+<meta name="author" content="Ericton Felicidad de Brito">
+<meta name="color-scheme" content="dark">
+<meta name="theme-color" content="#05080f">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Portfólio · Ericton Felicidad de Brito">
+<meta property="og:description" content="Analista de Teste (QA) e Desenvolvedor Frontend — Manaus/AM.">
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%2305080f'/%3E%3Ccircle cx='16' cy='16' r='11' fill='none' stroke='%2338e1ff' stroke-width='2' stroke-dasharray='40 12'/%3E%3Ccircle cx='16' cy='16' r='5' fill='%2338e1ff'/%3E%3C/svg%3E">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=Barlow:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<canvas id="bg" aria-hidden="true"></canvas>
+<div class="veil" aria-hidden="true"></div>
+<div class="scan" aria-hidden="true"></div>
+<div class="flash" id="flash" aria-hidden="true"></div>
+
+<div class="boot" id="boot" role="dialog" aria-modal="true" aria-label="Entrada do portfólio">
+  <div class="boot-inner">
+    <div class="langs" role="group" aria-label="Idioma / Language">
+      <button class="lang" type="button" data-lang="pt" aria-pressed="true">
+        <svg class="flag" viewBox="0 0 28 20" aria-hidden="true"><rect width="28" height="20" fill="#009b3a"/><path d="M14 2.4 25.4 10 14 17.6 2.6 10z" fill="#fedf00"/><circle cx="14" cy="10" r="4.1" fill="#002776"/></svg>
+        PT
+      </button>
+      <button class="lang" type="button" data-lang="en" aria-pressed="false">
+        <svg class="flag" viewBox="0 0 28 20" aria-hidden="true"><rect width="28" height="20" fill="#fff"/><g fill="#b22234"><rect width="28" height="1.55" y="0"/><rect width="28" height="1.55" y="3.1"/><rect width="28" height="1.55" y="6.2"/><rect width="28" height="1.55" y="9.3"/><rect width="28" height="1.55" y="12.4"/><rect width="28" height="1.55" y="15.5"/><rect width="28" height="1.55" y="18.45"/></g><rect width="12" height="10.85" fill="#3c3b6e"/></svg>
+        EN
+      </button>
+    </div>
+
+    <div class="reactor" aria-hidden="true">
+      <svg viewBox="0 0 200 200">
+        <circle class="ring ring-c" cx="100" cy="100" r="92" stroke-width="1" stroke-dasharray="2 10"/>
+        <circle class="ring ring-a" cx="100" cy="100" r="78" stroke-width="1.5" stroke-dasharray="130 40"/>
+        <circle class="ring ring-b" cx="100" cy="100" r="62" stroke-width="2" stroke-dasharray="40 24"/>
+        <circle class="ring" cx="100" cy="100" r="46" stroke-width="1" stroke-opacity=".28"/>
+      </svg>
+      <div class="core"></div>
+    </div>
+    <p class="boot-kicker" id="bootKicker">sistema em espera</p>
+    <h1 class="boot-title">Ericton Felicidad de Brito</h1>
+    <p class="boot-sub" data-en="QA Test Analyst · Frontend Developer · Manaus, Brazil">Analista de Teste (QA) · Desenvolvedor Frontend · Manaus, AM</p>
+    <ul class="log" id="log" aria-live="polite"></ul>
+    <div class="boot-actions">
+      <button class="btn" id="startBtn" type="button" data-en="Activate system">Ativar sistema</button>
+      <button class="btn hidden" id="enterBtn" type="button" data-en="Open my resume">Acessar meu currículo</button>
+      <button class="btn ghost hidden" id="replayBtn" type="button" data-en="Replay voice">Repetir voz</button>
+    </div>
+    <button class="boot-skip" id="skipBtn" type="button" data-en="enter without audio">entrar sem áudio</button>
+  </div>
+</div>
+
+<div class="wrap" id="app">
+  <div class="topbar">
+    <nav aria-label="Seções">
+      <a href="#resumo" data-en="Summary">Resumo</a>
+      <a href="#competencias" data-en="Skills">Competências</a>
+      <a href="#experiencia" data-en="Experience">Experiência</a>
+      <a href="#formacao" data-en="Education">Formação</a>
+      <a href="#contato" data-en="Contact">Contato</a>
+    </nav>
+    <div class="topbar-right">
+      <div class="langs" role="group" aria-label="Idioma / Language">
+        <button class="lang" type="button" data-lang="pt" aria-pressed="true">
+          <svg class="flag" viewBox="0 0 28 20" aria-hidden="true"><rect width="28" height="20" fill="#009b3a"/><path d="M14 2.4 25.4 10 14 17.6 2.6 10z" fill="#fedf00"/><circle cx="14" cy="10" r="4.1" fill="#002776"/></svg>
+          PT
+        </button>
+        <button class="lang" type="button" data-lang="en" aria-pressed="false">
+          <svg class="flag" viewBox="0 0 28 20" aria-hidden="true"><rect width="28" height="20" fill="#fff"/><g fill="#b22234"><rect width="28" height="1.55" y="0"/><rect width="28" height="1.55" y="3.1"/><rect width="28" height="1.55" y="6.2"/><rect width="28" height="1.55" y="9.3"/><rect width="28" height="1.55" y="12.4"/><rect width="28" height="1.55" y="15.5"/><rect width="28" height="1.55" y="18.45"/></g><rect width="12" height="10.85" fill="#3c3b6e"/></svg>
+          EN
+        </button>
+      </div>
+      <span class="sys"><i class="dot"></i> <span data-en="online">online</span> <span id="clock">--:--:--</span></span>
+    </div>
+  </div>
+
+  <header class="hero reveal">
+    <p class="eyebrow" data-en="Portfolio · QA &amp; Frontend">Portfólio · QA &amp; Frontend</p>
+    <h1>Ericton Felicidad de Brito</h1>
+    <p class="role" data-en-html="QA Test Analyst <b>·</b> Frontend Developer <b>·</b> Manaus, Brazil">Analista de Teste (QA) <b>·</b> Desenvolvedor Frontend <b>·</b> Manaus, AM</p>
+    <p class="lede" data-en="Two tracks in one career: I build responsive interfaces in Angular and Vue, integrated with REST APIs and covered by unit tests; and I work in software quality with manual and automated testing, API validation, performance testing and continuous integration pipelines.">Atuação em duas frentes: construo interfaces responsivas em Angular e Vue, integradas a APIs REST e cobertas por testes unitários; e trabalho com qualidade de software em testes manuais e automatizados, validação de APIs, performance e pipelines de integração contínua.</p>
+    <ul class="chips">
+      <li><span class="chip hi" data-en="6 years in tech">6 anos em tecnologia</span></li>
+      <li><span class="chip" data-en="MBA · Software Quality Management">MBA · Gestão da Qualidade em Software</span></li>
+      <li><span class="chip" data-en="BSc · Information Systems">Bacharel · Sistemas de Informação</span></li>
+      <li><span class="chip" data-en="Payments &amp; acquiring">Meios de pagamento &amp; adquirência</span></li>
+    </ul>
+  </header>
+
+  <section id="resumo" class="reveal">
+    <div class="sec-head"><h2 data-en="Professional summary">Resumo profissional</h2></div>
+    <div class="panel">
+      <p style="margin:0 0 12px" data-en-html="On the <strong>frontend</strong>, I build responsive interfaces with Angular and Vue using Angular Material and Vuetify, always faithful to the proposed design, integrated with REST APIs and covered by unit tests for clean, maintainable code."><strong>No desenvolvimento frontend</strong>, construo interfaces responsivas com Angular e Vue usando Angular Material e Vuetify, sempre fiéis ao design proposto, com integração a APIs REST e testes unitários para garantir cobertura e um código limpo e sustentável.</p>
+      <p style="margin:0" data-en-html="In <strong>QA</strong>, I run manual and automated testing — E2E, functional, non-functional, usability, acceptance and business-rule testing —, validation of REST and custom APIs, performance testing and continuous integration pipelines, with version control in Git. Day-to-day tools: Cypress, Playwright, Python, k6, Locust, Jenkins, Git, Postman, Insomnia, Bruno, Swagger, DBeaver, PostgreSQL, MySQL and SQL.">Em <strong>QA</strong>, atuo com testes manuais e automatizados — E2E, funcionais, não funcionais, de usabilidade, de aceitação e de regras de negócio —, validação de APIs REST e customizadas, testes de performance e pipelines de integração contínua, com versionamento em Git. Ferramentas do dia a dia: Cypress, Playwright, Python, k6, Locust, Jenkins, Git, Postman, Insomnia, Bruno, Swagger, DBeaver, PostgreSQL, MySQL e SQL.</p>
+    </div>
+  </section>
+
+  <section id="competencias" class="reveal">
+    <div class="sec-head"><h2 data-en="Technical skills">Competências técnicas</h2></div>
+    <div class="grid">
+      <div class="panel">
+        <h3 data-en="Languages">Linguagens</h3>
+        <ul class="chips">
+          <li><span class="chip">JavaScript</span></li><li><span class="chip">TypeScript</span></li>
+          <li><span class="chip">SQL</span></li><li><span class="chip" data-en="Python (basic)">Python (básico)</span></li>
+          <li><span class="chip" data-en="Java (basic)">Java (básico)</span></li><li><span class="chip" data-en="C# (basic)">C# (básico)</span></li>
+        </ul>
+      </div>
+      <div class="panel">
+        <h3 data-en="Frontend">Frontend</h3>
+        <ul class="chips">
+          <li><span class="chip">Angular</span></li><li><span class="chip">Vue.js</span></li>
+          <li><span class="chip">Angular Material</span></li><li><span class="chip">Vuetify</span></li>
+          <li><span class="chip">HTML5</span></li><li><span class="chip">CSS3</span></li>
+        </ul>
+      </div>
+      <div class="panel">
+        <h3 data-en="Automation and performance">Automação e performance</h3>
+        <ul class="chips">
+          <li><span class="chip">Cypress</span></li><li><span class="chip">Playwright</span></li>
+          <li><span class="chip">Pytest</span></li><li><span class="chip">Robot Framework</span></li>
+          <li><span class="chip">k6</span></li><li><span class="chip">Locust</span></li>
+        </ul>
+      </div>
+      <div class="panel">
+        <h3 data-en="API testing">Testes de API</h3>
+        <ul class="chips">
+          <li><span class="chip">Postman</span></li><li><span class="chip">Insomnia</span></li>
+          <li><span class="chip">Bruno</span></li><li><span class="chip">Swagger</span></li>
+        </ul>
+      </div>
+      <div class="panel">
+        <h3 data-en="Test and defect management">Gestão de testes e defeitos</h3>
+        <ul class="chips">
+          <li><span class="chip">Jira</span></li><li><span class="chip">Zephyr</span></li>
+          <li><span class="chip">Azure DevOps</span></li><li><span class="chip">Qase</span></li>
+          <li><span class="chip">Trello</span></li>
+        </ul>
+      </div>
+      <div class="panel">
+        <h3 data-en="CI/CD and DevOps">CI/CD e DevOps</h3>
+        <ul class="chips">
+          <li><span class="chip">GitHub Actions</span></li><li><span class="chip">Jenkins</span></li>
+          <li><span class="chip">Docker</span></li>
+        </ul>
+        <p class="note" data-en="Continuous integration pipelines that run the test automation before Pull Requests are opened.">Pipelines de integração contínua que executam a automação de testes antes da abertura de Pull Requests.</p>
+      </div>
+      <div class="panel">
+        <h3 data-en="Databases">Banco de dados</h3>
+        <ul class="chips">
+          <li><span class="chip">PostgreSQL</span></li><li><span class="chip">MySQL</span></li>
+          <li><span class="chip">MongoDB</span></li><li><span class="chip">DuckDB</span></li>
+          <li><span class="chip">DBeaver</span></li>
+        </ul>
+      </div>
+      <div class="panel">
+        <h3 data-en="Version control">Versionamento</h3>
+        <ul class="chips">
+          <li><span class="chip">Git</span></li><li><span class="chip">GitHub</span></li><li><span class="chip">GitLab</span></li>
+        </ul>
+      </div>
+      <div class="panel">
+        <h3 data-en="Artificial intelligence">Inteligência artificial</h3>
+        <p class="plain" data-en="Building AI agents to support frontend development and test automation: requirements analysis, test scenario generation and UAT plan writing.">Criação de agentes de IA para apoiar o desenvolvimento frontend e a automação de testes: análise de requisitos, geração de cenários de teste e elaboração de planos de homologação.</p>
+      </div>
+      <div class="panel">
+        <h3 data-en="Methodologies">Metodologias</h3>
+        <ul class="chips">
+          <li><span class="chip">Scrum</span></li><li><span class="chip">Kanban</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="experiencia" class="reveal">
+    <div class="sec-head"><h2 data-en="Professional experience">Experiência profissional</h2></div>
+    <div class="timeline">
+      <article class="panel job now">
+        <div class="job-head">
+          <span class="job-co">DBC Company</span>
+          <h3 data-en="Test Analyst">Analista de Teste</h3>
+          <span class="job-when" data-en="Nov 2025 — Present">Nov/2025 — Atualmente</span>
+        </div>
+        <p class="job-ctx" data-en="Payments and acquiring · client: Getnet">Meios de pagamento e adquirência · cliente: Getnet</p>
+        <ul>
+          <li data-en="Manual functional and integration testing across merchant onboarding, transactions, cancellations and refunds, run through REST APIs (Postman and Bruno) and the online channel.">Testes manuais funcionais e de integração em fluxos de credenciamento, transações, cancelamentos e estornos, executados via APIs REST (Postman e Bruno) e canal online.</li>
+          <li data-en="End-to-end validation of transactions, cancellations and refunds: checking the data in BASE24, the processing in Payware and the record of each operation in PRM.">Validação ponta a ponta de transações, cancelamentos e estornos: conferência dos dados no BASE24, do processamento no Payware e do registro das operações no PRM.</li>
+          <li data-en="Merchant onboarding and validation of the acquiring products enabled in the CRM (Siebel) and other channels.">Credenciamento de estabelecimentos e validação dos produtos de adquirência habilitados no CRM (Siebel) e demais canais.</li>
+          <li data-en="Writing test plans, UAT sign-off spreadsheets and test closure reports.">Elaboração de planos de teste, planilhas de homologação UAT e relatórios de finalização de testes.</li>
+          <li data-en="Migration of Postman collections to Bruno, adapting the validation scripts.">Migração de coleções Postman para Bruno, com adaptação dos scripts de validação.</li>
+          <li data-en="Management of test cases, evidence and defects in Jira with Zephyr.">Gestão de casos de teste, evidências e defeitos no Jira com Zephyr.</li>
+        </ul>
+      </article>
+
+      <article class="panel job">
+        <div class="job-head">
+          <span class="job-co">Neoway</span>
+          <h3 data-en="Quality Analyst">Analista de Qualidade</h3>
+          <span class="job-when" data-en="Jun 2025 — Nov 2025">Jun/2025 — Nov/2025</span>
+        </div>
+        <ul>
+          <li data-en="Functional and non-functional testing, manual and automated, on custom APIs: performance, stress and load, file-based integration and Zapier integration with a CRM.">Testes funcionais e não funcionais, manuais e automatizados, em APIs customizadas: performance, stress e carga, integração via arquivo e integração via Zapier com CRM.</li>
+          <li data-en="Automation with Cypress, k6 and Locust, with Python/DuckDB to handle large data volumes.">Automação com Cypress, k6 e Locust, com Python/DuckDB para gestão de grandes volumes de dados.</li>
+          <li data-en="Defect management in Jira, version control in GitLab and regression testing with Jenkins and Docker.">Gestão de falhas no Jira, versionamento no GitLab e testes de regressão com Jenkins e Docker.</li>
+          <li data-en="Data validation in Power BI, ensuring consistency against the original sources.">Validação de dados em Power BI, garantindo consistência frente às fontes originais.</li>
+        </ul>
+      </article>
+
+      <article class="panel job">
+        <div class="job-head">
+          <span class="job-co">ZDZ Code</span>
+          <h3 data-en="Test Analyst / QA · Contractor">Analista de Teste/QA · PJ</h3>
+          <span class="job-when" data-en="Jan 2025 — May 2025">Jan/2025 — Mai/2025</span>
+        </div>
+        <ul>
+          <li data-en="Manual, functional and non-functional testing on a web system built with Vue 3 and Vuetify, across the development, staging and change-management environments, including E2E in all three.">Testes manuais, funcionais e não funcionais em sistema web com Vue 3 e Vuetify, nos ambientes de desenvolvimento, homologação e GMUD, incluindo E2E nos três ambientes.</li>
+          <li data-en="Validation of the system and its business rules, with a test plan written for each cycle.">Validação do sistema e das regras de negócio, com plano de testes elaborado a cada ciclo.</li>
+          <li data-en="Management of test cases, bugs and improvements in Azure DevOps.">Gestão de casos de teste, bugs e melhorias no Azure DevOps.</li>
+          <li data-en="Mentoring junior QAs and following up on the team's activities.">Mentoria de QAs juniores e acompanhamento das atividades da equipe.</li>
+        </ul>
+      </article>
+
+      <article class="panel job">
+        <div class="job-head">
+          <span class="job-co">Grupo ICTS</span>
+          <h3 data-en="Test Analyst / QA">Analista de Teste/QA</h3>
+          <span class="job-when" data-en="Sep 2022 — Oct 2024">Set/2022 — Out/2024</span>
+        </div>
+        <ul>
+          <li data-en="Manual, functional, non-functional, usability and performance testing on frontend and backend, including validation of the communication between APIs and microservices.">Testes manuais, funcionais, não funcionais, de usabilidade e de performance em frontend e backend, incluindo a validação da comunicação entre APIs e microsserviços.</li>
+          <li data-en="Test plans and cases supported by an AI agent that generated the scenarios from the requirements and defined flows.">Planos e casos de teste com apoio de um agente de IA, que gerava os cenários a partir dos requisitos e dos fluxos definidos.</li>
+          <li data-en="API test automation with Cypress, validated side by side with the Swagger documentation, and performance testing with k6.">Automação de testes de API com Cypress, validada em paralelo com a documentação no Swagger, e testes de performance com k6.</li>
+          <li data-en="Data validation in MongoDB, defect management in Qase, Trello and GitLab, and version control of the automation in GitLab.">Validação de dados no MongoDB, gestão de falhas no Qase, Trello e GitLab, e versionamento da automação no GitLab.</li>
+        </ul>
+      </article>
+
+      <article class="panel job">
+        <div class="job-head">
+          <span class="job-co">Grupo ICTS</span>
+          <h3 data-en="Frontend Developer">Desenvolvedor Frontend</h3>
+          <span class="job-when" data-en="Nov 2020 — Sep 2022">Nov/2020 — Set/2022</span>
+        </div>
+        <p class="job-ctx" data-en="Intern (Nov 2020 — Feb 2021) · Frontend Development Analyst (Mar 2021 — Sep 2022)">Estagiário (Nov/2020 — Fev/2021) · Analista de Desenvolvimento Frontend (Mar/2021 — Set/2022)</p>
+        <ul>
+          <li data-en="Responsive interfaces with HTML5, CSS3, TypeScript, Angular 10 and Angular Material, integrated with several microservices.">Interfaces responsivas com HTML5, CSS3, TypeScript, Angular 10 e Angular Material, integradas a diversos microsserviços.</li>
+          <li data-en="Unit tests to guarantee coverage and that features worked as expected.">Testes unitários para garantir cobertura e o funcionamento das funcionalidades conforme o esperado.</li>
+          <li data-en="After being hired full time, more autonomy and ownership of deliveries: merge request reviews and creation of releases and tags in GitLab.">Após a efetivação, maior autonomia e responsabilidade pelas entregas: revisão de merge requests e criação de releases e tags no GitLab.</li>
+          <li data-en="Task management in Trello with Kanban.">Gestão de tarefas no Trello com Kanban.</li>
+        </ul>
+      </article>
+
+      <article class="panel job">
+        <div class="job-head">
+          <span class="job-co">INDT</span>
+          <h3 data-en="Intern · QA and Frontend">Estagiário · QA e Frontend</h3>
+          <span class="job-when" data-en="Nov 2018 — May 2020">Nov/2018 — Mai/2020</span>
+        </div>
+        <ul>
+          <li data-en="Software testing: manual testing and documentation of non-conformities, with scenarios defined from the Brazilian ABNT technical standards for Ginga.">Teste de software: testes manuais e documentação de não conformidades, com cenários definidos a partir das normas técnicas da ABNT para o Ginga.</li>
+          <li data-en="Automation of Ginga-NCL applications with Lua scripts, simulating user events (remote control keys) and validating internal state and object precedence.">Automação de aplicações Ginga-NCL com scripts em Lua, simulando eventos do usuário (teclas do controle remoto) e validando o estado interno e a ordem de precedência dos objetos.</li>
+          <li data-en="Frontend: responsive interfaces with HTML5, CSS3, JavaScript, TypeScript and Angular 6 with Angular Material, on Linux.">Frontend: interfaces responsivas com HTML5, CSS3, JavaScript, TypeScript e Angular 6 com Angular Material, em ambiente Linux.</li>
+          <li data-en="Code review in GitLab, unit tests and task management in Trello with Kanban.">Revisão de código no GitLab, testes unitários e gestão de tarefas no Trello com Kanban.</li>
+        </ul>
+      </article>
+    </div>
+  </section>
+
+  <section id="formacao" class="reveal">
+    <div class="sec-head"><h2 data-en="Education, courses and languages">Formação, cursos e idiomas</h2></div>
+    <div class="grid">
+      <div class="panel">
+        <h3 data-en="Education">Formação acadêmica</h3>
+        <ul class="list-clean">
+          <li><span class="k">2024—2025</span><span class="v" data-en-html="MBA · Software Quality Management<small>Faveni</small>">MBA · Gestão da Qualidade em Software<small>Faveni</small></span></li>
+          <li><span class="k">2018—2021</span><span class="v" data-en-html="BSc · Information Systems<small>Uninorte</small>">Bacharelado · Sistemas de Informação<small>Uninorte</small></span></li>
+        </ul>
+      </div>
+      <div class="panel">
+        <h3 data-en="Languages">Idiomas</h3>
+        <ul class="list-clean">
+          <li><span class="k">EN</span><span class="v" data-en-html="English · BI Essential Starter<small>ICBEU</small>">Inglês · BI Essential Starter<small>ICBEU</small></span></li>
+          <li><span class="k">EN</span><span class="v" data-en-html="English · intermediate<small>in progress</small>">Inglês intermediário<small>cursando</small></span></li>
+          <li><span class="k">PT</span><span class="v" data-en-html="Portuguese<small>native</small>">Português<small>nativo</small></span></li>
+        </ul>
+      </div>
+      <div class="panel" style="grid-column:1/-1">
+        <h3 data-en="Courses">Cursos</h3>
+        <ul class="chips">
+          <li><span class="chip">Cypress Expert · Advanced · Foundations — Ninja do Cypress</span></li>
+          <li><span class="chip">Playwright eXpress — Udemy</span></li>
+          <li><span class="chip" data-en="Mastering Pytest: testing with Python — Udemy">Domine Pytest: Testes com Python — Udemy</span></li>
+          <li><span class="chip" data-en="Manual software testing: from planning to execution — Udemy">Teste de Software Manual: do planejamento à execução — Udemy</span></li>
+          <li><span class="chip" data-en="Testing modern applications with Cypress — Udemy">Testes de Aplicações Modernas com Cypress — Udemy</span></li>
+          <li><span class="chip" data-en="Web automation · Cypress and Cucumber — Udemy">Automação Web · Cypress e Cucumber — Udemy</span></li>
+          <li><span class="chip" data-en="End-to-end testing with Cypress — Udemy">Testes end-to-end com Cypress — Udemy</span></li>
+          <li><span class="chip" data-en="Continuous testing with Cypress on GitHub Actions — Udemy">Testes Contínuos em Cypress no GitHub Actions — Udemy</span></li>
+          <li><span class="chip" data-en="Testing REST APIs with MongoDB and RabbitMQ in Cypress — Udemy">Testando API REST com MongoDB e RabbitMQ em Cypress — Udemy</span></li>
+          <li><span class="chip" data-en="Complete Vue.js 2 — Origamid">Vue.js 2 Completo — Origamid</span></li>
+          <li><span class="chip">Frontend &amp; UX/UI Design — Origamid</span></li>
+          <li><span class="chip" data-en="Complete JavaScript with ES6 — Origamid">JavaScript completo com ES6 — Origamid</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="contato" class="reveal">
+    <div class="sec-head"><h2 data-en="Contact">Contato</h2></div>
+    <div class="contact">
+      <div class="panel cc">
+        <span class="k" data-en="E-mail">E-mail</span>
+        <span class="v" id="mail">erictonbrito@yahoo.com.br</span>
+      </div>
+      <div class="panel cc">
+        <span class="k" data-en="Phone">Telefone</span>
+        <span class="v" id="tel">(92) 98466-0806</span>
+      </div>
+      <div class="panel cc">
+        <span class="k" data-en="Location">Localização</span>
+        <span class="v" data-en="Manaus — Amazonas, Brazil">Manaus — Amazonas, Brasil</span>
+      </div>
+      <div class="panel cc">
+        <span class="k">GitHub</span>
+        <span class="v"><a href="https://github.com/ErictonFelicidade86" target="_blank" rel="noopener">github.com/ErictonFelicidade86</a></span>
+      </div>
+      <div class="panel cc">
+        <span class="k">GitLab</span>
+        <span class="v"><a href="https://gitlab.com/Erictondeveloper" target="_blank" rel="noopener">gitlab.com/Erictondeveloper</a></span>
+      </div>
+      <div class="panel cc">
+        <span class="k">LinkedIn</span>
+        <span class="v"><a href="https://www.linkedin.com/in/erictonbrito" target="_blank" rel="noopener">linkedin.com/in/erictonbrito</a></span>
+      </div>
+    </div>
+
+    <div class="footer">
+      <span data-en="Ericton Felicidad de Brito · QA &amp; Frontend · Manaus, Brazil">Ericton Felicidad de Brito · QA &amp; Frontend · Manaus/AM</span>
+      <span class="aud">
+        <button type="button" id="speakAgain" data-en="Play greeting">Ouvir saudação</button>
+        <button type="button" id="muteBtn" aria-pressed="false">Som: ligado</button>
+        <button type="button" id="toTop" class="top" data-en="Back to top">Voltar ao topo</button>
+      </span>
+    </div>
+  </section>
+</div>
+
+<script src="js/script.js"></script>
+</body>
+</html>
